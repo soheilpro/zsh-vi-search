@@ -1,6 +1,7 @@
 autoload -U read-from-minibuffer
 
 function _index-of {
+  setopt localoptions no_sh_word_split
   local STR=$1
   local STRLEN=${#STR}
   local SUBSTR=$2
@@ -25,6 +26,7 @@ function _index-of {
 }
 
 function _vi-search-forward {
+  setopt localoptions no_sh_word_split
   read-from-minibuffer
   INDEX=$(_index-of $BUFFER $REPLY $CURSOR) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $REPLY 0) && CURSOR=$INDEX
   export VISEARCHSTR=$REPLY
@@ -32,10 +34,12 @@ function _vi-search-forward {
 }
 
 function _vi-search-forward-repeat {
+  setopt localoptions no_sh_word_split
   INDEX=$(_index-of $BUFFER $VISEARCHSTR $(($CURSOR + 1))) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $VISEARCHSTR 0) && CURSOR=$INDEX
 }
 
 function _vi-search-backward {
+  setopt localoptions no_sh_word_split
   read-from-minibuffer
   INDEX=$(_index-of $BUFFER $REPLY $CURSOR -1) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $REPLY $((${#BUFFER} - 1)) -1) && CURSOR=$INDEX
   export VISEARCHSTR=$REPLY
@@ -43,10 +47,12 @@ function _vi-search-backward {
 }
 
 function _vi-search-backward-repeat {
+  setopt localoptions no_sh_word_split
   INDEX=$(_index-of $BUFFER $VISEARCHSTR $(($CURSOR - 1)) -1) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $VISEARCHSTR $((${#BUFFER} - 1)) -1) && CURSOR=$INDEX
 }
 
 function _vi-search-repeat {
+  setopt localoptions no_sh_word_split
   if [[ $VISEARCHDIRECTION -eq 1 ]]; then
     _vi-search-forward-repeat
   else
@@ -55,6 +61,7 @@ function _vi-search-repeat {
 }
 
 function _vi-search-repeat-reverse {
+  setopt localoptions no_sh_word_split
   if [[ $VISEARCHDIRECTION -eq 1 ]]; then
     _vi-search-backward-repeat
   else
