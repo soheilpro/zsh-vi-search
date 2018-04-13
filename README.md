@@ -11,6 +11,8 @@ Download [zsh-vi-search.zsh](https://raw.githubusercontent.com/soheilpro/zsh-vi-
 + <kbd>N</kbd> Repeat last search in the opposite direction
 
 ## Version History
++ 1.0.1
+	+ Fixed [#2](https://github.com/soheilpro/zsh-vi-search/issues/2): Not working when "sh_word_split" enabled (Thanks [aoyama-val](https://github.com/aoyama-val))
 + 1.0
 	+ Initial release.
 
@@ -22,7 +24,7 @@ Soheil Rashidi
 + http://github.com/soheilpro
 
 ## Copyright and License
-Copyright 2016 Soheil Rashidi
+Copyright 2018 Soheil Rashidi.
 
 Licensed under the The MIT License (the "License");
 you may not use this work except in compliance with the License.
