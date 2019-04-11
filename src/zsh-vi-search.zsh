@@ -28,7 +28,7 @@ function _index-of {
 function _vi-search-forward {
   setopt localoptions no_sh_word_split
   read-from-minibuffer
-  INDEX=$(_index-of $BUFFER $REPLY $CURSOR) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $REPLY 0) && CURSOR=$INDEX
+  INDEX=$(_index-of $BUFFER $REPLY $(($CURSOR + 1))) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $REPLY 0) && CURSOR=$INDEX
   export VISEARCHSTR=$REPLY
   export VISEARCHDIRECTION=1
 }
@@ -41,7 +41,7 @@ function _vi-search-forward-repeat {
 function _vi-search-backward {
   setopt localoptions no_sh_word_split
   read-from-minibuffer
-  INDEX=$(_index-of $BUFFER $REPLY $CURSOR -1) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $REPLY $((${#BUFFER} - 1)) -1) && CURSOR=$INDEX
+  INDEX=$(_index-of $BUFFER $REPLY $(($CURSOR - 1)) -1) && CURSOR=$INDEX || INDEX=$(_index-of $BUFFER $REPLY $((${#BUFFER} - 1)) -1) && CURSOR=$INDEX
   export VISEARCHSTR=$REPLY
   export VISEARCHDIRECTION=-1
 }
