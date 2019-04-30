@@ -11,6 +11,8 @@ Download [zsh-vi-search.zsh](https://raw.githubusercontent.com/soheilpro/zsh-vi-
 + <kbd>N</kbd> Repeat last search in the opposite direction
 
 ## Version History
++ 1.0.2
+	+ Fixed [#3](https://github.com/soheilpro/zsh-vi-search/issues/3): Always search starting after/before $CURSOR, not on it. (Thanks [comex](https://github.com/comex))
 + 1.0.1
 	+ Fixed [#2](https://github.com/soheilpro/zsh-vi-search/issues/2): Not working when "sh_word_split" enabled (Thanks [aoyama-val](https://github.com/aoyama-val))
 + 1.0
